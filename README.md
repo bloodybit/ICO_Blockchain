@@ -1,43 +1,109 @@
 # BlockStarter 4.0 Final Project
 
-- First part deadline: 30.06.2017 (end of day)
-- Extension deadline: 16.07.2017 (end od day)
+Group E
+- Ahmad Jawid Jamiulahmadi (380457) @jawid
+- Aqa Mustafa Akhlaqi (380455) @akhlaqi
+- Filippo Boiani (387680) @filippo.boiani
+- Gabriel Vilen (387555) @gavil
+- Hekmatullah Sajid (380454) @hekmatullah.sajid
+- Riccardo Sibani (382708) @riccardo.sibani
+- Rohullah Ayobi (380448) @rohullahayobi
+- Stefan Stojkovski (387529) @stefan.stojkovski
+
+## How to run it
+- Go to project folder. 
+- Run the following command: 
+
+    `docker-compose up --build`
+- Open your browser at the following link:
+
+    `your-docker-machine-ip:4000`
+
+
+## Api 
+
+Method | Route | Params | Description
+--- | --- | --- | ---
+*GET* | `/api/v1/` |  | Get Hello World
+*POST* | `/api/v1/projects` | *see below* | Create a project
+*POST* | `/api/v1/projects/fund` | - project<br> - backer<br> - amount | Fund a project
+*GET* | `/api/v1/projects` |  | Get all projects
+*GET* | `/api/v1/projects/creator/:creator` |  | Get all projects created by a creator
+*GET* | `/api/v1/projects/backer/:backer ` |  | Get all projects funded by a backer
+*GET* | `/api/v1/projects/status/:project ` | | Show project status
+*GET* | `/api/v1/projects/:project ` |  | Show project information
+*POST* | `/api/v1/projects/withdraw ` | - project<br> - creator<br> - amount  | Withdraw funds from the project
+*POST* | `/api/v1/projects/claim-shares ` | - project<br> - backer<br> - token  | Claim project shares
+*POST* | `/api/v1/projects/show/shares ` | - project<br> - backer  | Show the shares owned by a backer
+
+### Create Project 
+
+Requst body: 
+
+```javascript
+{
+    token: {
+        initialSupply: 10,
+        tokenName: "Example Token",
+        tokenSymbol: "Symbol",
+        decimals: 4,
+        creator: "0x ..."
+    },
+    project: {
+        title: "Example",
+        description: "Frist Project With Token",
+        goal: 100,
+        duration: 120, //minutes
+        sharesAvailable: 50,
+        creator: "0x ..."
+    }
+}
+```
+
+## Project extension
+- A: kill a project when the time is up and the goal is not met. 
+
 
 ## Metodology 
 - Scrum (1 week iteration)
-- Kanban (?)
 
-# Tools 
+## Tools 
+Technologies: 
 - Slack for communication
 - GitLab for VCS
 - Slack WebHook for commit notifications 
 
+Dev Tools:
+- Server: Node.js 
+- Client: Angular.js
 
-## Tasks (24; 6 done, 8 in progress, 10 todo)
-- Project contract: withdraw funds (only owner) [<span style="color:green">DONE</span>] [@filippoboiani]
-- Project contract: claim project shares (only backers) [<span style="color:green">DONE</span>] [@filippoboiani]
-- MongoDB Connection [<span style="color:green">DONE</span>] [@filippoboiani]
-- MongoDB Schema Definition [<span style="color:green">DONE</span>] [@filippoboiani]
-- Create a Project API [<span style="color:orange">IN PROGRESS</span>] [@filippoboiani]
-- Show Project Info API [<span style="color:orange">IN PROGRESS</span>] [@filippoboiani]
-- List Projects API [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- List Created Project API [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- List Backed Project API [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- Login API (passport) [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- Back a Project API [<span style="color:orange">IN PROGRESS</span>] [@filippoboiani]
-- Withdraw funds API [<span style="color:orange">IN PROGRESS</span>] [@filippoboiani]
-- Get Project API [<span style="color:green">DONE</span>] [@filippoboiani]
-- Show Status API [<span style="color:green">DONE</span>] [@filippoboiani]
-- Claim Shares API [<span style="color:orange">IN PROGRESS</span>] [@filippoboiani]
-- Show Share API 
-- Kill project API [<span style="color:orange">IN PROGRESS</span>] [@filippoboiani]
-- Login View [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- List projects View [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- Create a Project View [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- Project Info View [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- Back a Project View [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
-- Shares View WHAT IS THIS?
-- Kill Project View [<span style="color:orange">IN PROGRESS on branch Meteor</span>] [@riccardosibani]
+
+## Tasks (25; 25 done, 0 in progress, 0 todo)
+- Project contract: withdraw funds (only owner) [ X ]
+- Project contract: claim project shares (only backers) [ X ]
+- MongoDB Connection [ X ]
+- MongoDB Schema Definition [ X ]
+- Create a Project API [ X ]
+- Show Project Info API [ X ]
+- List Projects API [ X ]
+- List Created Project API [ X ]
+- List Backed Project API [ X ]
+- Login API (passport) [ X ]
+- Back a Project API [ X ]
+- Withdraw funds API [ X ]
+- Get Project API [ X ]
+- Show Status API [ X ]
+- Claim Shares API [ X ]
+- Show Share API [ X ]
+- Kill project API [ X ]
+- Project deadline [ X ]
+- Automatic kill when the goal is not met [ X ]
+- Login View [ X ]
+- List projects View [ X ]
+- Create a Project View [ X ]
+- Project Info View [ X ]
+- Back a Project View [ X ]
+- Kill Project View [ X ]
 
 
 
